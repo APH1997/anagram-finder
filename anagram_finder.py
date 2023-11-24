@@ -1,13 +1,23 @@
 class Anagrams:
     def __init__(self, scrabble_dict_path="./scrabble_dictionary.txt"):
         """
-        Reads local scrabble file; stores in
-        super object
+        Reads local scrabble file; converts to list,
+        then converts to super object
         """
         self.dict_content = []
         with open(scrabble_dict_path, "r") as file:
             for line in file:
                 self.dict_content.append(line.replace('\n', ''))
+
+        char_tree_dict = {}
+        # iterate through self.dict_content
+        # iterate through the letter of each word
+        """
+        example: word = cat
+        c => char_tree_dict[c] ? next : char_tree_dict[c] = {}
+        a => char_tree_dict[c][a] ? next : char_tree_dict[c][a] = {}
+        t => char_tree_dict[c][a][t] ? next : char_tree_dict[c][a][t] = {}
+        """
 
     def find_anagrams(self, word):
         """

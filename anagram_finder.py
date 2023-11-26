@@ -21,57 +21,39 @@ class Anagrams:
                     curr_sub_obj = curr_sub_obj[char]
                 else:
                     curr_sub_obj = curr_sub_obj[char]
-        print(char_tree_dict)
-        """
-        example: word = cat
-        c => char_tree_dict[c] ? next : char_tree_dict[c] = {}
-        a => char_tree_dict[c][a] ? next : char_tree_dict[c][a] = {}
-        t => char_tree_dict[c][a][t] ? next : char_tree_dict[c][a][t] = {}
-        """
 
-    def find_anagrams(self, word):
+        self.dictionary_obj = char_tree_dict
+
+
+    def find_anagrams(self, word, r = None):
         """
-        Truncates dictionary to len(word)
         Returns a list with all anagrams
         of the input word
 
+        bath
+        btah
+        btha
+        baht
+        tabh
+        tahb
+
+        need to figure this out lmao
         """
+        if len(word) <= 1:
+            return [word]
+
+        # Grab first char, hold constant well shuffling all others
+        for i in range(len(word)):
+            stationary_char = word[i]
+            for index, char in enumerate(word):
+                if
+
+
+
 
 
 def solution_tester():
     pass
 
 test = Anagrams()
-
-"""
-I could convert the dictionary into
- a massive nested object
-Where each nest-level corresponds with a
-word index, and obj[a] is an object
-of all letters that come after a and still can make up valid words
-
-The goal is to cut down on
-permutations time complexity;
-This can be accomplished by disqualifying
-a given permutation of a string
-as soon as possible while we are calculating it
-{
-    a: {
-        a: {
-            b: {}
-            c:
-            d:
-            ...
-        },
-        b:
-        c:
-        d:
-        ...
-    },
-    b: {}
-    c: {}
-    d: {}
-    ...
-}
-This might speed the
-"""
+print(test.find_anagrams('bat'))

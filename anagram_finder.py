@@ -12,6 +12,16 @@ class Anagrams:
         char_tree_dict = {}
         # iterate through self.dict_content
         # iterate through the letter of each word
+        # scaffold the letters through the object
+        for word in self.dict_content:
+            curr_sub_obj = char_tree_dict
+            for char in word:
+                if char not in curr_sub_obj:
+                    curr_sub_obj[char] = {}
+                    curr_sub_obj = curr_sub_obj[char]
+                else:
+                    curr_sub_obj = curr_sub_obj[char]
+        print(char_tree_dict)
         """
         example: word = cat
         c => char_tree_dict[c] ? next : char_tree_dict[c] = {}
@@ -21,8 +31,10 @@ class Anagrams:
 
     def find_anagrams(self, word):
         """
+        Truncates dictionary to len(word)
         Returns a list with all anagrams
         of the input word
+
         """
 
 
@@ -30,7 +42,7 @@ def solution_tester():
     pass
 
 test = Anagrams()
-print(test.dict_content)
+
 """
 I could convert the dictionary into
  a massive nested object
